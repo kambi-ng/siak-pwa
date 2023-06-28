@@ -74,7 +74,9 @@ export default function Score() {
 
   return (
     <div className="flex flex-col gap-4">
-      <IPGraph summary={summary} />
+      <div className="aspect-[4/3]">
+        <IPGraph summary={summary} />
+      </div>
       {history.map((sem) => (
         <SemesterBox sem={sem} key={sem.period + sem.semester} />
       ))}
