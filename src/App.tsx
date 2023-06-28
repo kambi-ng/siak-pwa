@@ -7,7 +7,7 @@ import BottomBar from "./components/BottomBar";
 function App() {
   return (
     <div className="h-screen mx-auto max-w-lg flex flex-col justify-between">
-      <div className="overflow-y-auto p-4 self-stretch h-[100%] bg-gray-100">
+      <div className="overflow-y-auto self-stretch h-[100%] bg-gray-100">
         <Outlet />
       </div>
 
