@@ -26,8 +26,7 @@ export default function Score() {
         <div className="flex flex-row gap-2">
           <div className="flex flex-col gap-1 rounded-md border border-black font-bold p-2 w-full bg-gray-200">
             <strong className="text-xl">
-              {lastSemester?.data?.total_grade_point_average.toPrecision(3) ??
-                "0.00"}
+              {summary.student.gpa.toPrecision(3) ?? "0.00"}
             </strong>
             <span className="text-xs">IPK</span>
           </div>
