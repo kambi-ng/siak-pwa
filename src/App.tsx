@@ -11,7 +11,7 @@ export async function userLoader() {
 
 function App() {
   return (
-    <div className="h-screen mx-auto max-w-md flex flex-col justify-between">
+    <div className="h-screen mx-auto max-w-lg flex flex-col justify-between">
       <div className="overflow-y-scroll p-4">
         <Outlet />
       </div>
