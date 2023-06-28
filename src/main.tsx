@@ -11,9 +11,11 @@ import {
   homeLoader,
   historyLoader,
   scoreLoader,
+  profileLoader,
 } from "./components/loaders";
 import UnderConstruction from "./components/UnderConstruction";
 import Detail from "./routes/detail";
+import Profile from "./routes/profile";
 
 const router = createBrowserRouter([
   {
@@ -43,7 +45,8 @@ const router = createBrowserRouter([
       },
       {
         path: "profile",
-        element: <UnderConstruction />,
+        element: <Profile />,
+        loader: profileLoader,
       },
     ],
   },

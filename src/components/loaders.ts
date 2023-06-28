@@ -39,3 +39,10 @@ export async function scoreLoader({ params }: LoaderFunctionArgs) {
   );
   return json({ classDetail, history });
 }
+
+export async function profileLoader() {
+  return getOrRedirect<UserSummary>(
+    `${import.meta.env.VITE_API_URL}/academic/summary`,
+    false
+  );
+}
