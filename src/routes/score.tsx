@@ -8,6 +8,7 @@ import {
   Tooltip,
   Legend,
   Line,
+  ResponsiveContainer,
 } from "recharts";
 
 function SemesterBox({ sem }: { sem: SemesterHistory }) {
@@ -48,15 +49,20 @@ function IPGraph({ summary }: { summary: UserSummary }) {
     }));
 
   return (
-    <LineChart width={400} height={300} data={data}>
-      <CartesianGrid strokeDasharray="3 3" />
-      <XAxis dataKey="name" />
-      <YAxis />
-      <Tooltip />
-      <Legend />
-      <Line type="monotone" dataKey="gp" stroke="#8884d8" />
-      <Line type="monotone" dataKey="gpa" stroke="#82ca9d" />
-    </LineChart>
+    <ResponsiveContainer aspect={4 / 3}>
+      <LineChart
+        data={data}
+        margin={{ top: 20, right: 30, left: 0, bottom: 0 }}
+      >
+        <CartesianGrid strokeDasharray="3 3" />
+        <XAxis dataKey="name" className="text-xs" />
+        <YAxis />
+        <Tooltip />
+        <Legend />
+        <Line type="monotone" dataKey="gp" stroke="#8884d8" />
+        <Line type="monotone" dataKey="gpa" stroke="#82ca9d" />
+      </LineChart>
+    </ResponsiveContainer>
   );
 }
 
