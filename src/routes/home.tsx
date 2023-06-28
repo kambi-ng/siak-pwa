@@ -40,7 +40,12 @@ export default function Home() {
         return (
           <div key={news.title} className="rounded-md bg-gray-200 p-2">
             <strong className="font-bold text-sm">{news.title}</strong>
-            <p className="text-xs mt-2 whitespace-pre-line">{news.content}</p>
+            <p className="text-xs mt-2 whitespace-pre-line">
+              {news.content.substring(
+                0,
+                news.content.trimEnd().lastIndexOf("\n") || news.content.length
+              )}
+            </p>
           </div>
         );
       })}
