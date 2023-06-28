@@ -1,5 +1,5 @@
 import { SemesterHistory, UserSummary } from "../interface";
-import { useLoaderData } from "react-router-dom";
+import { Link, NavLink, useLoaderData } from "react-router-dom";
 import {
   LineChart,
   CartesianGrid,
@@ -19,7 +19,10 @@ function SemesterBox({ sem }: { sem: SemesterHistory }) {
       </strong>
 
       {sem.scores.map((score) => (
-        <div className="flex flex-row gap-4 items-center border rounded-md border-black w-full">
+        <Link
+          to={`/score/${score.class_id}`}
+          className="flex flex-row gap-4 items-center border rounded-md border-black w-full"
+        >
           <div className="min-w-[4rem] min-h-[4rem] text-center font-bold text-lg bg-gray-400 rounded-tl-md rounded-bl-md items-center justify-center flex flex-col flex-none">
             <span>{score.final_index}</span>
             <span className="text-xs">{score.final_score}</span>
@@ -31,7 +34,7 @@ function SemesterBox({ sem }: { sem: SemesterHistory }) {
               {score.class} - {score.credits} SKS - {score.code}
             </span>
           </div>
-        </div>
+        </Link>
       ))}
     </div>
   );

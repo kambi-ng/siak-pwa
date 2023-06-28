@@ -46,6 +46,7 @@ export interface Score {
   status: string;
   final_score: string;
   final_index: string;
+  class_id: string;
 }
 
 export interface UserSummary {
@@ -85,4 +86,10 @@ export interface TermData {
   total_grade_point: number;
   total_grade_point_average: number;
   total_passed_grade_point_average: number;
+}
+
+export interface CourseDetailData {
+  name: string;
+  weight: string;
+  score: string;
 }

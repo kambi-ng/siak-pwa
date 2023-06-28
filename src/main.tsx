@@ -6,8 +6,14 @@ import Home from "./routes/home";
 import Login from "./routes/login";
 import { Toaster } from "react-hot-toast";
 import Score from "./routes/score";
-import { userLoader, homeLoader, historyLoader } from "./components/loaders";
+import {
+  userLoader,
+  homeLoader,
+  historyLoader,
+  scoreLoader,
+} from "./components/loaders";
 import UnderConstruction from "./components/UnderConstruction";
+import Detail from "./routes/detail";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +35,7 @@ const router = createBrowserRouter([
         path: "score",
         element: <Score />,
         loader: historyLoader,
+        id: "history",
       },
       {
         path: "schedule",
@@ -39,6 +46,11 @@ const router = createBrowserRouter([
         element: <UnderConstruction />,
       },
     ],
+  },
+  {
+    path: "/score/:classId",
+    loader: scoreLoader,
+    element: <Detail />,
   },
 ]);
 
