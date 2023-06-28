@@ -1,11 +1,7 @@
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { useLoaderData, useRouteLoaderData } from "react-router-dom";
 import { Homepage, UserInfo } from "../interface";
-import { getOrRedirect, kyWrapper } from "../utils";
-
-export async function homeLoader() {
-  return getOrRedirect<Homepage>(`${import.meta.env.VITE_API_URL}/home`, false);
-}
+import { kyWrapper } from "../utils";
 
 export default function Home() {
   const pfpRef = useRef<HTMLImageElement>(null);

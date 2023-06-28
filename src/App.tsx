@@ -1,13 +1,7 @@
 import { Calendar, Exam, HouseSimple } from "@phosphor-icons/react";
 import { NavLink, Outlet } from "react-router-dom";
 import "./globals.css";
-import { getOrRedirect } from "./utils";
-import { UserInfo } from "./interface";
 import clsx from "clsx";
-
-export async function userLoader() {
-  return getOrRedirect<UserInfo>(`${import.meta.env.VITE_API_URL}/me`, false);
-}
 
 function App() {
   return (

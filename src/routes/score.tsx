@@ -1,7 +1,5 @@
-import React from "react";
-import { getOrRedirect } from "../utils";
 import { SemesterHistory, UserSummary } from "../interface";
-import { json, useLoaderData } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 import {
   LineChart,
   CartesianGrid,
@@ -11,18 +9,6 @@ import {
   Legend,
   Line,
 } from "recharts";
-
-export async function historyLoader() {
-  const summary = await getOrRedirect<UserSummary>(
-    `${import.meta.env.VITE_API_URL}/academic/summary`,
-    true
-  );
-  const history = await getOrRedirect<SemesterHistory[]>(
-    `${import.meta.env.VITE_API_URL}/academic/history`,
-    true
-  );
-  return json({ summary, history });
-}
 
 function SemesterBox({ sem }: { sem: SemesterHistory }) {
   return (

@@ -1,11 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App, { userLoader } from "./App";
+import App from "./App";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Home, { homeLoader } from "./routes/home";
+import Home from "./routes/home";
 import Login from "./routes/login";
 import { Toaster } from "react-hot-toast";
-import Score, { historyLoader } from "./routes/score";
+import Score from "./routes/score";
+import { userLoader, homeLoader, historyLoader } from "./components/loaders";
 
 const router = createBrowserRouter([
   {
