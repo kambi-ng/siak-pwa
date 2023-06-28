@@ -21,7 +21,7 @@ export default function Detail() {
   );
 
   return (
-    <div className="flex flex-col gap-4 px-4 max-w-lg mx-auto bg-gray-100">
+    <div className="flex flex-col gap-4 px-4 max-w-lg mx-auto bg-gray-100 h-screen">
       <div className="flex flex-row bg-primary-0 gap-4 absolute top-0 left-1/2 transform -translate-x-1/2 w-screen h-12 px-4 items-center max-w-lg">
         <button
           onClick={() => navigate(-1)}
@@ -36,7 +36,7 @@ export default function Detail() {
       <strong>{courseName}</strong>
 
       <table className="w-full">
-        <thead className="text-left">
+        <thead className="text-left text-sm">
           <tr>
             <th>Komponen</th>
             <th>Bobot</th>
@@ -44,7 +44,7 @@ export default function Detail() {
           </tr>
         </thead>
 
-        <tbody>
+        <tbody className="text-xs">
           {classDetail.map((row) => (
             <tr key={row.name}>
               <td>{row.name}</td>
