@@ -2,6 +2,7 @@ import { SemesterHistory, UserSummary } from "../interface";
 import { useLoaderData } from "react-router-dom";
 import IPGraph from "../components/ScorePage/IPGraph";
 import SemesterBox from "../components/ScorePage/SemesterBox";
+import CaptionBox from "../components/general/CaptionBox";
 
 export default function Score() {
   const { history, summary } = useLoaderData() as {
@@ -24,19 +25,16 @@ export default function Score() {
         </div>
 
         <div className="flex flex-row gap-2">
-          <div className="flex flex-col gap-1 rounded-md border border-black font-bold p-2 w-full bg-gray-200">
-            <strong className="text-xl">
-              {summary.student.gpa.toPrecision(3) ?? "0.00"}
-            </strong>
-            <span className="text-xs">IPK</span>
-          </div>
-
-          <div className="flex flex-col gap-1 rounded-md border border-black font-bold p-2 w-full bg-gray-200">
-            <strong className="text-xl">
-              {lastSemester?.period ?? "??/??"} - {lastSemester?.term ?? "?"}
-            </strong>
-            <span className="text-xs">Tahun Ajaran</span>
-          </div>
+          <CaptionBox
+            content={summary.student.gpa.toPrecision(3) ?? "0.00"}
+            label="IPK"
+          />
+          <CaptionBox
+            content={`${lastSemester?.period ?? "??/??"} - ${
+              lastSemester?.term ?? "?"
+            }`}
+            label="Tahun Ajaran"
+          />
         </div>
 
         {history.map((sem, i) => (
