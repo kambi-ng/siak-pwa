@@ -18,12 +18,19 @@ export function kyWrapper(input: Input, options?: Options) {
   });
 }
 
+const cache: Map<Input, unknown> = new Map();
+
 export async function getOrRedirect<T>(input: Input, direct: true): Promise<T>;
 export async function getOrRedirect<T>(
   input: Input,
   direct: false
 ): Promise<Response>;
 export async function getOrRedirect<T>(input: Input, direct: boolean) {
+  const existingCache = cache.get(input);
+  if (existingCache) {
+    return direct ? existingCache : json(existingCache);
+  }
+
   try {
     const response = await kyWrapper(input).json<BaseResponse<T>>();
 
@@ -31,8 +38,17 @@ export async function getOrRedirect<T>(input: Input, direct: boolean) {
       throw new Error(response.message);
     }
 
+    cache.set(input, response.data);
     return direct ? response.data : json(response.data);
   } catch {
     return redirect("/auth");
   }
+}
+
+export function invalidateCache(input: Input) {
+  return cache.delete(input);
+}
+
+export function clearCache() {
+  return cache.clear();
 }
