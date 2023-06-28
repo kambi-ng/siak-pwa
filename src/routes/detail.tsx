@@ -21,7 +21,7 @@ export default function Detail() {
   );
 
   return (
-    <div className="flex flex-col gap-4 px-4 max-w-lg mx-auto">
+    <div className="flex flex-col gap-4 px-4 max-w-lg mx-auto bg-gray-100">
       <div className="flex flex-row bg-primary-0 gap-4 absolute top-0 left-1/2 transform -translate-x-1/2 w-screen h-12 px-4 items-center max-w-lg">
         <button
           onClick={() => navigate(-1)}
