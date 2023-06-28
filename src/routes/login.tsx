@@ -31,7 +31,7 @@ export default function Login() {
   }
 
   return (
-    <div className="max-w-lg h-screen flex flex-col justify-center gap-4 p-4 mx-auto">
+    <div className="max-w-lg h-screen flex flex-col justify-center gap-4 p-4 mx-auto bg-gray-100">
       <h1 className="text-xl font-bold">Login</h1>
 
       <div className="flex flex-col gap-1">

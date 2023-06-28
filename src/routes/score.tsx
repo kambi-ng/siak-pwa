@@ -13,7 +13,7 @@ import {
 
 function SemesterBox({ sem }: { sem: SemesterHistory }) {
   return (
-    <div className="p-4 rounded-md bg-gray-200 flex flex-col gap-2">
+    <div className="p-4 rounded-md bg-gray-200 flex flex-col gap-2 bg-gray-100">
       <strong>
         {sem.period} - Semester {sem.semester}
       </strong>
