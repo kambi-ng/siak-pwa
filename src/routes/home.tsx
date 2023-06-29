@@ -1,21 +1,11 @@
-import { useEffect, useRef } from "react";
 import { useLoaderData, useRouteLoaderData } from "react-router-dom";
 import { Homepage, UserInfo } from "../interface";
-import { kyWrapper } from "../utils";
+import { usePhoto } from "../components/usePhoto";
 
 export default function Home() {
-  const pfpRef = useRef<HTMLImageElement>(null);
+  const pfpRef = usePhoto();
   const user = useRouteLoaderData("user") as UserInfo;
   const homepage = useLoaderData() as Homepage;
-
-  useEffect(() => {
-    kyWrapper(`${import.meta.env.VITE_API_URL}/photo`)
-      .blob()
-      .then((blob) => {
-        let img = URL.createObjectURL(blob);
-        pfpRef.current!.src = img;
-      });
-  }, []);
 
   return (
     <div className="flex flex-col gap-4 p-4">

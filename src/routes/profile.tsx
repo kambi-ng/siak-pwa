@@ -1,21 +1,11 @@
-import React, { useEffect, useRef } from "react";
 import { useLoaderData } from "react-router-dom";
 import { UserSummary } from "../interface";
-import { kyWrapper } from "../utils";
 import CaptionBox from "../components/general/CaptionBox";
+import { usePhoto } from "../components/usePhoto";
 
 export default function Profile() {
   const profile = useLoaderData() as UserSummary;
-  const pfpRef = useRef<HTMLImageElement>(null);
-
-  useEffect(() => {
-    kyWrapper(`${import.meta.env.VITE_API_URL}/photo`)
-      .blob()
-      .then((blob) => {
-        let img = URL.createObjectURL(blob);
-        pfpRef.current!.src = img;
-      });
-  }, []);
+  const pfpRef = usePhoto();
 
   return (
     <div className="flex flex-col items-center justify-center gap-1 h-[100%] p-4">
