@@ -39,7 +39,7 @@ const PATHS = [
 
 export default function BottomBar() {
   return (
-    <div className="w-full bg-primary-0 p-1 px-3 flex flex-row gap-2 items-center justify-around text-sm">
+    <div className="w-full bg-primary-0 p-1 px-3 flex flex-row gap-2 items-center justify-around text-xs">
       {PATHS.map((p) => (
         <NavLink
           to={p.href}
