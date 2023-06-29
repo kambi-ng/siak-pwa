@@ -16,6 +16,7 @@ import {
 import UnderConstruction from "./components/UnderConstruction";
 import Detail from "./routes/detail";
 import Profile from "./routes/profile";
+import { CircleNotch } from "@phosphor-icons/react";
 
 const router = createBrowserRouter([
   {
@@ -60,6 +61,13 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <Toaster />
-    <RouterProvider router={router} />
+    <RouterProvider
+      router={router}
+      fallbackElement={
+        <div className="flex items-center justify-center h-screen bg-gray-100">
+          <CircleNotch size={64} className="animate-spin text-primary-0" />
+        </div>
+      }
+    />
   </React.StrictMode>
 );
