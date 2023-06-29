@@ -23,7 +23,7 @@ export default function About() {
         className="w-full"
       >
         <CaptionBox
-          content="Backend"
+          content="Frontend"
           label="GitHub"
           icon={<GithubLogo size={48} />}
         />
@@ -31,10 +31,10 @@ export default function About() {
       <a
         href="https://github.com/kambi-ng/siak-rest"
         target="_blank"
-        className="w-full"
+        className="w-full mt-1"
       >
         <CaptionBox
-          content="Frontend"
+          content="Backend"
           label="GitHub"
           icon={<GithubLogo size={48} />}
         />
