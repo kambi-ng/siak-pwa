@@ -17,6 +17,7 @@ import UnderConstruction from "./components/UnderConstruction";
 import Detail from "./routes/detail";
 import Profile from "./routes/profile";
 import { CircleNotch } from "@phosphor-icons/react";
+import About from "./routes/about";
 
 const router = createBrowserRouter([
   {
@@ -48,6 +49,10 @@ const router = createBrowserRouter([
         path: "profile",
         element: <Profile />,
         loader: profileLoader,
+      },
+      {
+        path: "about",
+        element: <About />,
       },
     ],
   },

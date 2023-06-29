@@ -1,4 +1,10 @@
-import { Calendar, Exam, HouseSimple, UserCircle } from "@phosphor-icons/react";
+import {
+  Calendar,
+  Exam,
+  HouseSimple,
+  Info,
+  UserCircle,
+} from "@phosphor-icons/react";
 import clsx from "clsx";
 import React from "react";
 import { NavLink } from "react-router-dom";
@@ -23,6 +29,11 @@ const PATHS = [
     href: "/profile",
     label: "Profil",
     icon: <UserCircle size={18} weight="bold" />,
+  },
+  {
+    href: "/about",
+    label: "Info",
+    icon: <Info size={18} weight="bold" />,
   },
 ];
 
