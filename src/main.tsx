@@ -18,13 +18,16 @@ import Detail from "./routes/detail";
 import Profile from "./routes/profile";
 import { CircleNotch } from "@phosphor-icons/react";
 import About from "./routes/about";
+import ErrorComponent from "./components/ErrorComponent";
 
 const router = createBrowserRouter([
   {
     path: "/auth",
+    errorElement: <ErrorComponent />,
     element: <Login />,
   },
   {
+    errorElement: <ErrorComponent />,
     path: "/",
     loader: userLoader,
     id: "user",
@@ -59,6 +62,7 @@ const router = createBrowserRouter([
   {
     path: "/score/:classId",
     loader: scoreLoader,
+    errorElement: <ErrorComponent />,
     element: <Detail />,
   },
 ]);
