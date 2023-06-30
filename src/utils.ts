@@ -1,4 +1,4 @@
-import ky from "ky";
+import ky, { HTTPError } from "ky";
 import { BaseResponse, SiakCookie } from "./interface";
 import { Input, Options } from "ky/distribution/types/options";
 import { json, redirect } from "react-router-dom";
@@ -40,8 +40,18 @@ export async function getOrRedirect<T>(input: Input, direct: boolean) {
 
     cache.set(input, response.data);
     return direct ? response.data : json(response.data);
-  } catch {
-    return redirect("/auth");
+  } catch (err) {
+    if (err instanceof HTTPError) {
+      if (err.response.status < 500) {
+        if (err.response.status == 401) return redirect("/auth");
+
+        const response: BaseResponse<any> = await err.response.json();
+        throw new Response(response.message, { status: err.response.status });
+      }
+      throw new Response("Internal server error", { status: 500 });
+    }
+
+    throw err;
   }
 }
 
