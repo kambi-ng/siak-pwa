@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
 import { SemesterHistory, Term } from "../../interface";
+import { VALID_SCORE_INDEX } from "../../constants";
 
 export default function SemesterBox({
   sem,
   term,
 }: {
   sem: SemesterHistory;
-  term: Term;
+  term: Term | undefined;
 }) {
   return (
     <div className="p-4 rounded-md bg-gray-200 flex flex-col gap-2">
@@ -14,7 +15,7 @@ export default function SemesterBox({
         <strong>
           {sem.period} - Semester {sem.semester}
         </strong>
-        <p>IPS: {term.data?.grade_point_average.toPrecision(3)}</p>
+        <p>IPS: {term?.data?.grade_point_average.toPrecision(3) ?? "?"}</p>
       </div>
 
       {sem.scores.map((score) => (
@@ -23,7 +24,11 @@ export default function SemesterBox({
           className="flex flex-row gap-4 items-center border rounded-md border-black w-full"
         >
           <div className="min-w-[4rem] min-h-[4rem] text-center font-bold text-lg bg-gray-400 rounded-tl-md rounded-bl-md items-center justify-center flex flex-col flex-none">
-            <span>{score.final_index}</span>
+            <span>
+              {VALID_SCORE_INDEX.includes(score.final_index)
+                ? score.final_index
+                : "?"}
+            </span>
             <span className="text-xs">{score.final_score}</span>
           </div>
 

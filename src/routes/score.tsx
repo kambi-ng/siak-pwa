@@ -41,7 +41,11 @@ export default function Score() {
           <SemesterBox
             sem={sem}
             key={sem.period + sem.semester}
-            term={cleanedSemesters[cleanedSemesters.length - 1 - i]}
+            term={cleanedSemesters.find(
+              (term) =>
+                term.period == sem.period &&
+                term.term == sem.semester.toString()
+            )}
           />
         ))}
       </div>
