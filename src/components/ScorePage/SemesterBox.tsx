@@ -20,6 +20,7 @@ export default function SemesterBox({
 
       {sem.scores.map((score) => (
         <Link
+          key={score.class_id}
           to={`/score/${score.class_id}`}
           className="flex flex-row gap-4 items-center border rounded-md border-black w-full"
         >

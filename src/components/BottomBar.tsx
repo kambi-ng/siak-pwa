@@ -43,6 +43,7 @@ export default function BottomBar() {
       {PATHS.map((p) => (
         <NavLink
           to={p.href}
+          key={p.href}
           className={({ isActive }) =>
             clsx(
               "flex flex-col gap-1 items-center p-2 rounded-md w-full",
