@@ -9,7 +9,8 @@ export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  async function onLogin() {
+  async function onLogin(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
     const result = await toast.promise(
       ky
         .post(`${import.meta.env.VITE_API_URL}/login`, {
@@ -31,35 +32,34 @@ export default function Login() {
   }
 
   return (
-    <div className="max-w-lg h-screen flex flex-col justify-center gap-4 p-4 mx-auto bg-gray-100">
-      <h1 className="text-xl font-bold">Login</h1>
+    <div className="max-w-lg h-screen p-4 mx-auto bg-gray-100 flex flex-col justify-center">
+      <h1 className="text-xl font-bold pb-4">Login</h1>
 
-      <div className="flex flex-col gap-1">
-        <label className="text-xs font-semibold">Username</label>
-        <input
-          className="p-2 rounded-md border-primary-2 border-2"
-          type="text"
-          placeholder="Username"
-          onChange={(e) => setUsername(e.target.value)}
-        />
-      </div>
+      <form onSubmit={onLogin} className="flex flex-col gap-4">
+        <div className="flex flex-col gap-1">
+          <label className="text-xs font-semibold">Username</label>
+          <input
+            className="p-2 rounded-md border-primary-2 border-2"
+            type="text"
+            placeholder="Username"
+            onChange={(e) => setUsername(e.target.value)}
+          />
+        </div>
 
-      <div className="flex flex-col gap-1">
-        <label className="text-xs font-semibold">Password</label>
-        <input
-          className="p-2 rounded-md border-primary-2 border-2"
-          type="password"
-          placeholder="**********"
-          onChange={(e) => setPassword(e.target.value)}
-        />
-      </div>
+        <div className="flex flex-col gap-1">
+          <label className="text-xs font-semibold">Password</label>
+          <input
+            className="p-2 rounded-md border-primary-2 border-2"
+            type="password"
+            placeholder="**********"
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
 
-      <button
-        onClick={onLogin}
-        className="font-semibold px-4 py-2 bg-primary-0 rounded-md"
-      >
-        Login
-      </button>
+        <button className="font-semibold px-4 py-2 bg-primary-0 rounded-md">
+          Login
+        </button>
+      </form>
     </div>
   );
 }
