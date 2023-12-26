@@ -5,6 +5,7 @@ import {
   UserSummary,
   SemesterHistory,
   CourseDetailData,
+  Course,
 } from "../interface";
 import { getOrRedirect } from "../utils";
 
@@ -43,6 +44,13 @@ export async function scoreLoader({ params }: LoaderFunctionArgs) {
 export async function profileLoader() {
   return getOrRedirect<UserSummary>(
     `${import.meta.env.VITE_API_URL}/academic/summary`,
+    false
+  );
+}
+
+export async function classesLoader() {
+  return getOrRedirect<Course[]>(
+    `${import.meta.env.VITE_API_URL}/academic/classes`,
     false
   );
 }

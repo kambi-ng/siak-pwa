@@ -93,3 +93,14 @@ export interface CourseDetailData {
   weight: string;
   score: string;
 }
+
+export interface Course {
+  code: string;
+  name: string;
+  class_name: string;
+  credits: number;
+  period: string;
+  schedule: string[];
+  rooms: string[];
+  lecturers: string[];
+}

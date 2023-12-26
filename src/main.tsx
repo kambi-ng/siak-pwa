@@ -12,13 +12,14 @@ import {
   historyLoader,
   scoreLoader,
   profileLoader,
+  classesLoader,
 } from "./components/loaders";
-import UnderConstruction from "./components/UnderConstruction";
 import Detail from "./routes/detail";
 import Profile from "./routes/profile";
 import { CircleNotch } from "@phosphor-icons/react";
 import About from "./routes/about";
 import ErrorComponent from "./components/ErrorComponent";
+import SchedulePage from "./routes/schedule";
 
 const router = createBrowserRouter([
   {
@@ -46,7 +47,8 @@ const router = createBrowserRouter([
       },
       {
         path: "schedule",
-        element: <UnderConstruction />,
+        element: <SchedulePage />,
+        loader: classesLoader,
       },
       {
         path: "profile",
